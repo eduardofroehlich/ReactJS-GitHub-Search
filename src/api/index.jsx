@@ -7,7 +7,7 @@ const instance = axios.create({
 	}
 });
 
-async function getAllUsers(usersPerPage, currentPage) {
+async function getAllUsers() {
 	try {
 		const response = await instance.get('/searchAllUsers');
 		return response.data

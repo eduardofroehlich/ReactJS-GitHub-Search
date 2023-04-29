@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import styles from "./Profile.module.css";
 import Moment from "moment";
-import { Card } from "../../components/Card";
 import { useNavigate, useParams } from "react-router-dom";
 import { useGitHubApi } from "../../api";
 import LoadingSpinner from "../../components/Spinner";
@@ -29,7 +28,7 @@ export function Profile() {
   const navigate = useNavigate();
   const goBack = () => {
     navigate(-1);
-  }
+  };
   useEffect(() => {
     searchUser();
   }, []);
@@ -42,7 +41,13 @@ export function Profile() {
       )}
       {!isLoading && profile && (
         <>
-          <span class="material-symbols-outlined" style={{cursor:"pointer"}} onClick={() => goBack()}>arrow_back</span>
+          <span
+            className="material-symbols-outlined"
+            style={{ cursor: "pointer" }}
+            onClick={() => goBack()}
+          >
+            arrow_back
+          </span>
           <div className={styles.details}>
             <img src={profile.avatar_url} alt="" />
             <div className={styles.user}>

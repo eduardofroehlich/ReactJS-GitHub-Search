@@ -1,6 +1,5 @@
-import { Link } from 'react-router-dom';
 import styles from './CardRepository.module.css';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, PropTypes } from 'react';
 import { useGitHubApi } from '../../api';
 import LoadingSpinner from '../Spinner';
 export function CardRepository({ user }) {
@@ -23,7 +22,7 @@ export function CardRepository({ user }) {
     }
     useEffect(() => {
         searchRepositories();
-    }, [])
+    }, []);
     return(
         <>
             {isLoading && (
