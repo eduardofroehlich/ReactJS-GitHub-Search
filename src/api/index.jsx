@@ -1,7 +1,7 @@
 import axios from "axios";
 import { notification } from "antd";
 const instance = axios.create({
-	baseURL: 'http://localhost:5000',
+	baseURL: 'https://api-github-challenge.onrender.com',
 	headers: {
 		'Access-Control-Allow-Origin': '*'
 	}
