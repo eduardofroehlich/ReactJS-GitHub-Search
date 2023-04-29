@@ -39,13 +39,13 @@ export function Home() {
   const npage = Math.ceil(dados.length / recordsPerPage);
   const numbers = [...Array(npage + 1).keys()].slice(1);
   function nextPage() {
-    if(currentPage !== lastIndex) {
+    if(currentPage !== npage) {
         setCurrentPage(currentPage + 1);
     }
   }
 
   function prePage() {
-    if(currentPage !== firstIndex) {
+    if(currentPage !== 1) {
         setCurrentPage(currentPage - 1);
     }
   }
@@ -100,7 +100,7 @@ export function Home() {
       <nav>
         <ul className={styles.pagination}>
           <li className="page-item">
-            <a href="#" className="page-link" onClick={() => prePage}>
+            <a href="#" className="page-link" onClick={() => prePage()}>
               Prev
             </a>
           </li>
@@ -115,7 +115,7 @@ export function Home() {
             </li>
           ))}
           <li className="page-item">
-            <a href="#" className="page-link" onClick={() => nextPage}>
+            <a href="#" className="page-link" onClick={() => nextPage()}>
               Next
             </a>
           </li>
