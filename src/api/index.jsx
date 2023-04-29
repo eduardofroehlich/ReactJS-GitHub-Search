@@ -7,13 +7,9 @@ const instance = axios.create({
 	}
 });
 
-async function getAllUsers() {
+async function getAllUsers(usersPerPage, currentPage) {
 	try {
-		const response = await instance.get('/searchAllUsers', {
-			params: {
-				pagination: 10
-			}
-		});
+		const response = await instance.get('/searchAllUsers');
 		return response.data
 	} catch (error) {
 		console.error(error);
@@ -43,7 +39,26 @@ async function getUserByName(name) {
 	}
 }
 
+async function getRepositories(name) {
+	try {
+		const response = await instance.get('/getRepositories', {
+			params: {
+				name: name
+			}
+		});
+		return response.data
+	} catch (error) {
+		console.error(error);
+        notification.error({
+            message: 'Sorry, something went wrong.',
+            description: error.message,
+            duration: 4,
+        });
+	}
+}
+
 export const useGitHubApi = {
 	getAllUsers,
-	getUserByName
+	getUserByName,
+	getRepositories
 };
