@@ -25,6 +25,28 @@
     margin-right: 3rem;
 }
 
+.followers_details p:nth-child(1) {
+    font-weight: 600;
+}
+
+.followers_details p:nth-child(2) {
+    font-size: 14px;
+}
+
 .username_details {
     margin-top: 2rem;
+}
+.loading {
+    display: flex;
+    justify-content: center;
+    z-index: 100;
+}
+
+.link_profile {
+    font-size: 12px;
+}
+
+.card {
+    display: grid;
+    justify-items: center;
 }
