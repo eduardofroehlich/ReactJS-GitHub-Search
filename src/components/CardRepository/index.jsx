@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import styles from './CardRepository.module.css';
 import { useEffect, useState } from 'react';
 import { useGitHubApi } from '../../api';
+import LoadingSpinner from '../Spinner';
 export function CardRepository({ user }) {
     const [isLoading, setIsLoading] = useState(true);
     const [repositories, setRepositories] = useState([]);
@@ -25,6 +26,9 @@ export function CardRepository({ user }) {
     }, [])
     return(
         <>
+            {isLoading && (
+                <LoadingSpinner />
+            )}
             {!isLoading && repositories && repositories.map((repo, index) =>
                 <div key={index} className={styles.card}>
                     <div className={styles.details}>
